@@ -37,10 +37,8 @@ async function main() {
   const signers: SignerWithAddress[] = await ethers.getSigners();
   console.log("Signer 0 Address", signers[0].address)
 
-   const ERC1238ReceiverMockArtifact: Artifact = await artifacts.readArtifact("ERC1238ReceiverMock");
-   //let add1 = await ethers.utils.getAddress("0x5BE6E77b69BD3d9418712E21B26b920CA86478Cc") 
-   smartContractRecipient1 = <ERC1238ReceiverMock>(await waffle.deployContract(signers[0], ERC1238ReceiverMockArtifact));
-
+  const ERC1238ReceiverMockArtifact: Artifact = await artifacts.readArtifact("ERC1238ReceiverMock");
+  smartContractRecipient1 = <ERC1238ReceiverMock>(await waffle.deployContract(signers[0], ERC1238ReceiverMockArtifact));
   console.log("Recipient is deployed at address:", smartContractRecipient1.address )
 
 }
